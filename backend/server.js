@@ -14,8 +14,10 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+const taskRoute = require("./routes/TaskRoutes");
 const authRute = require("./routes/AuthenticationRoutes");
 
+app.use("/tasks", taskRoute);
 app.use("/api", authRute);
 
 app.listen(process.env.PORT || 5000, () => {
