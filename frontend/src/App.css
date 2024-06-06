@@ -1,0 +1,17 @@
+.authentication {
+  padding: 20px;
+    background-color: #ddd;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 40px 20px;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
