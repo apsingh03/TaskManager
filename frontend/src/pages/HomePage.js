@@ -55,6 +55,7 @@ const HomePage = () => {
       toast.error(actionResult.payload.msg);
       document.querySelector("#taskTitle").value = "";
       setisLoading(false);
+      navigate(0);
     }
 
     if (actionResult.payload.msg === "Added") {

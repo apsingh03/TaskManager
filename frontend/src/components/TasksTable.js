@@ -67,149 +67,169 @@ const TasksTable = ({
             </tr>
           </thead>
           <tbody>
-            {apiData &&
-              apiData.map((data, index) => {
-                return (
-                  <tr key={index}>
-                    <th scope="row"> {index + 1} </th>
-                    <td>
-                      {updateTargetRow === data.id ? (
-                        <input
-                          style={{
-                            border:
-                              updateBtn === false ? "none" : "1px solid #000",
-                          }}
-                          type="text"
-                          onChange={(e) => settaskTitle(e.target.value)}
-                          value={taskTitle}
-                        />
-                      ) : null}
-                      {(updateTargetRow === data.id) === false ? data.id : null}{" "}
-                      {(updateTargetRow === data.id) === false
-                        ? data.title && data.title
-                        : null}
-                    </td>
+            {(function () {
+              try {
+                {
+                  return (
+                    apiData &&
+                    apiData.map((data, index) => {
+                      return (
+                        <tr key={index}>
+                          <th scope="row"> {index + 1} </th>
+                          <td>
+                            {updateTargetRow === data.id ? (
+                              <input
+                                style={{
+                                  border:
+                                    updateBtn === false
+                                      ? "none"
+                                      : "1px solid #000",
+                                }}
+                                type="text"
+                                onChange={(e) => settaskTitle(e.target.value)}
+                                value={taskTitle}
+                              />
+                            ) : null}
+                            {(updateTargetRow === data.id) === false
+                              ? data.id
+                              : null}{" "}
+                            {(updateTargetRow === data.id) === false
+                              ? data.title && data.title
+                              : null}
+                          </td>
 
-                    <td>
-                      {updateTargetRow === data.id ? (
-                        <input
-                          style={{
-                            border:
-                              updateBtn === false ? "none" : "1px solid #000",
-                          }}
-                          type="text"
-                          onChange={(e) => settaskDescription(e.target.value)}
-                          value={taskDescription}
-                        />
-                      ) : (
-                        data.description && data.description
-                      )}
-                      {/* {(updateTargetRow === data.id) === false
+                          <td>
+                            {updateTargetRow === data.id ? (
+                              <input
+                                style={{
+                                  border:
+                                    updateBtn === false
+                                      ? "none"
+                                      : "1px solid #000",
+                                }}
+                                type="text"
+                                onChange={(e) =>
+                                  settaskDescription(e.target.value)
+                                }
+                                value={taskDescription}
+                              />
+                            ) : (
+                              data.description && data.description
+                            )}
+                            {/* {(updateTargetRow === data.id) === false
                         ? data.description
                         : null} */}
-                    </td>
-                    <td>
-                      {updateTargetRow === data.id ? (
-                        <div className="">
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name={`updateTaskRadio${data.id}`}
-                              id={`updateTaskCompleted${data.id}`}
-                              value="Completed"
-                              required
-                              checked={updateTaskRadio === "Completed"}
-                              onChange={(e) =>
-                                setupdateTaskRadio(e.target.value)
-                              }
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor={`updateTaskCompleted${data.id}`}
-                            >
-                              Completed
-                            </label>
-                          </div>
+                          </td>
+                          <td>
+                            {updateTargetRow === data.id ? (
+                              <div className="">
+                                <div className="form-check">
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name={`updateTaskRadio${data.id}`}
+                                    id={`updateTaskCompleted${data.id}`}
+                                    value="Completed"
+                                    required
+                                    checked={updateTaskRadio === "Completed"}
+                                    onChange={(e) =>
+                                      setupdateTaskRadio(e.target.value)
+                                    }
+                                  />
+                                  <label
+                                    className="form-check-label"
+                                    htmlFor={`updateTaskCompleted${data.id}`}
+                                  >
+                                    Completed
+                                  </label>
+                                </div>
 
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name={`updateTaskRadio${data.id}`}
-                              id={`updateTaskNotCompleted${data.id}`}
-                              value="Not Completed"
-                              checked={updateTaskRadio === "Not Completed"}
-                              onChange={(e) =>
-                                setupdateTaskRadio(e.target.value)
-                              }
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor={`updateTaskNotCompleted${data.id}`}
-                            >
-                              Not Completed
-                            </label>
-                          </div>
-                        </div>
-                      ) : (
-                        data.status && data.status
-                      )}
-                    </td>
+                                <div className="form-check">
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name={`updateTaskRadio${data.id}`}
+                                    id={`updateTaskNotCompleted${data.id}`}
+                                    value="Not Completed"
+                                    checked={
+                                      updateTaskRadio === "Not Completed"
+                                    }
+                                    onChange={(e) =>
+                                      setupdateTaskRadio(e.target.value)
+                                    }
+                                  />
+                                  <label
+                                    className="form-check-label"
+                                    htmlFor={`updateTaskNotCompleted${data.id}`}
+                                  >
+                                    Not Completed
+                                  </label>
+                                </div>
+                              </div>
+                            ) : (
+                              data.status && data.status
+                            )}
+                          </td>
 
-                    <td>
-                      <div className="d-flex flex-row">
-                        {updateBtn === false ? (
-                          <button
-                            className="btn btn-primary mx-3"
-                            onClick={() => [
-                              setupdateBtn(true),
-                              setupdateTargetRow(data.id),
-                            ]}
-                          >
-                            Update
-                          </button>
-                        ) : null}
+                          <td>
+                            <div className="d-flex flex-row">
+                              {updateBtn === false ? (
+                                <button
+                                  className="btn btn-primary mx-3"
+                                  onClick={() => [
+                                    setupdateBtn(true),
+                                    setupdateTargetRow(data.id),
+                                  ]}
+                                >
+                                  Update
+                                </button>
+                              ) : null}
 
-                        {updateBtn === true ? (
-                          <button
-                            className="btn btn-warning mx-3"
-                            onClick={() => [
-                              setupdateBtn(false),
-                              setupdateTargetRow(data.id),
-                            ]}
-                          >
-                            Cancel
-                          </button>
-                        ) : null}
+                              {updateBtn === true ? (
+                                <button
+                                  className="btn btn-warning mx-3"
+                                  onClick={() => [
+                                    setupdateBtn(false),
+                                    setupdateTargetRow(data.id),
+                                  ]}
+                                >
+                                  Cancel
+                                </button>
+                              ) : null}
 
-                        {updateBtn === true ? (
-                          <button
-                            className="btn btn-primary mx-3"
-                            onClick={() =>
-                              updateTask(
-                                data.id,
-                                taskTitle,
-                                taskDescription,
-                                updateTaskRadio
-                              )
-                            }
-                          >
-                            Submit
-                          </button>
-                        ) : null}
+                              {updateBtn === true ? (
+                                <button
+                                  className="btn btn-primary mx-3"
+                                  onClick={() =>
+                                    updateTask(
+                                      data.id,
+                                      taskTitle,
+                                      taskDescription,
+                                      updateTaskRadio
+                                    )
+                                  }
+                                >
+                                  Submit
+                                </button>
+                              ) : null}
 
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => deleteTask(data.id)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
+                              <button
+                                className="btn btn-danger"
+                                onClick={() => deleteTask(data.id)}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  );
+                }
+              } catch (error) {
+                console.log("TasksTable.js", error.message);
+              }
+            })()}
           </tbody>
         </table>
       </div>
