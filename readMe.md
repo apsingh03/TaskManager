@@ -11,7 +11,7 @@
 - Implemented Responsive Design
 - Deployed on Aws EC2 Instance
 
-#### Front End Deployed Link - [Click Here to Check FrontEnd](http://ec2-34-234-85-77.compute-1.amazonaws.com:3000/)
+#### Front End Deployed Link - [Click Here to Check FrontEnd](http://ec2-44-220-164-13.compute-1.amazonaws.com:3000/)
 
 ##### HTML , CSS , Bootstrap , Javascript , React JS , React Router, Redux Toolkit , Redux Thunk , Axios
 
@@ -19,7 +19,7 @@
 
 - Implemented API documentation using swagger
 
-#### Backend End Deployed Link - [Click Here to Check BackEnd](http://ec2-34-234-85-77.compute-1.amazonaws.com:8000/tasks/task)
+#### Backend End Deployed Link - [Click Here to Check BackEnd](http://ec2-44-220-164-13.compute-1.amazonaws.com:8000/tasks/task)
 
 #### Node JS , Express JS , Mysql , Jwt
 
