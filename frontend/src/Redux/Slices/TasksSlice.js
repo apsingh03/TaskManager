@@ -18,7 +18,7 @@ export const getAllTasksAsync = createAsyncThunk(
       //   console.log( "response - " , response.data );
       return response.data;
     } catch (error) {
-      console.log("getAllTasksAsync Error - ", error.response);
+      console.log("getAllTasksAsync Error - ", error.response.data);
     }
   }
 );
@@ -42,7 +42,7 @@ export const createTaskAsync = createAsyncThunk(
       //   console.log(" resopnse data ", response.data);
       return response.data;
     } catch (error) {
-      console.log("createTaskAsync Error - ", error.response);
+      console.log("createTaskAsync Error - ", error.response.data);
     }
   }
 );
@@ -67,7 +67,7 @@ export const updateTaskAsync = createAsyncThunk(
       //   console.log(" resopnse data ", response.data);
       return response.data;
     } catch (error) {
-      console.log("updateTaskAsync Error - ", error.response);
+      console.log("updateTaskAsync Error - ", error.response.data);
     }
   }
 );
@@ -83,7 +83,7 @@ export const deleteTaskAsync = createAsyncThunk(
       //   console.log( response.data );
       return response.data;
     } catch (error) {
-      console.log("deleteTaskAsync Error  ", error.response);
+      console.log("deleteTaskAsync Error  ", error.response.data);
     }
   }
 );

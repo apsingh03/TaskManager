@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
- 
+  const authReduxisAuthenticated = useSelector(
+    (state) => state.auth.loggedData
+  );
+
+  // console.log(authReduxisAuthenticated.email);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark px-5">
@@ -10,7 +17,8 @@ const Header = () => {
           Task Manager
         </Link>
         <button
-          className="navbar-toggler  "
+          style={{ color: "#fff" }}
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -18,7 +26,10 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span
+            className="navbar-toggler-icon text-light"
+            style={{ color: "#fff" }}
+          ></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -33,6 +44,35 @@ const Header = () => {
               </Link>
             </li>
 
+            {authReduxisAuthenticated.isUserLogged === true ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link text-light">
+                    {" "}
+                    {authReduxisAuthenticated.email &&
+                      authReduxisAuthenticated.email}{" "}
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-light">
+                    {" "}
+                    {authReduxisAuthenticated.fullName &&
+                      authReduxisAuthenticated.fullName}{" "}
+                  </Link>
+                </li>
+
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => {
+                    localStorage.removeItem("loggedDataToken");
+                    window.location.replace("/");
+                  }}
+                >
+                  {" "}
+                  Log Out{" "}
+                </button>
+              </>
+            ) : null}
           </ul>
         </div>
       </nav>

@@ -86,7 +86,7 @@ const TasksTable = ({
                       ) : null}
                       {(updateTargetRow === data.id) === false ? data.id : null}{" "}
                       {(updateTargetRow === data.id) === false
-                        ? data.title
+                        ? data.title && data.title
                         : null}
                     </td>
 
@@ -102,7 +102,7 @@ const TasksTable = ({
                           value={taskDescription}
                         />
                       ) : (
-                        data.description
+                        data.description && data.description
                       )}
                       {/* {(updateTargetRow === data.id) === false
                         ? data.description
@@ -153,7 +153,7 @@ const TasksTable = ({
                           </div>
                         </div>
                       ) : (
-                        data.status
+                        data.status && data.status
                       )}
                     </td>
 
