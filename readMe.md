@@ -23,11 +23,6 @@
 
 #### Node JS , Express JS , Mysql , Jwt
 
-### Android APP Backend
-
-- Its a cross platform Application
-- Its a React native CLI
-
 #### React Native , Redux Toolkit , Redux Thunk , Axios
 
 ## 🔗 Links
